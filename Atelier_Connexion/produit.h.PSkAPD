@@ -4,7 +4,6 @@
 #include <QSqlQueryModel>
 class Produit
 {
-///////////////////////////////////////////////////////////////////////////
 public:
     Produit();
     Produit(int,QString,QString,int,QString);
