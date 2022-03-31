@@ -171,3 +171,14 @@ QSqlQueryModel * Produit::Tricroi()
 }
 
 /////////////////////////////////////////
+QSqlQueryModel * Produit::recherche(QString rech)
+{
+    QSqlQueryModel *model=new QSqlQueryModel();
+    model->setQuery("select * from Produits where ID LIKE '%"+rech+"%'"  );
+    model->setHeaderData(0,Qt::Horizontal,QObject::tr("Identifiant"));
+    model->setHeaderData(1,Qt::Horizontal,QObject::tr("Image"));
+    model->setHeaderData(2,Qt::Horizontal,QObject::tr("Nom"));
+    model->setHeaderData(3,Qt::Horizontal,QObject::tr("Prix"));
+    model->setHeaderData(4,Qt::Horizontal,QObject::tr("Description"));
+    return model;
+}

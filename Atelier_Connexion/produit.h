@@ -22,7 +22,7 @@ public:
     bool ajouter();
     bool modifier();
     QSqlQueryModel* afficher();
-
+QSqlQueryModel * recherche(QString);
     bool supprimer(int);
     QSqlQueryModel * Tridecroi();
     QSqlQueryModel * Tricroi();
