@@ -139,5 +139,4 @@ void MainWindow::on_pb_pdf_clicked()
      QString DESCRIPTION=ui->la_description->text();
 
     Produit P(ID,IMAGE,NOM,PRIX,DESCRIPTION);
-    P.printPDF();
 }

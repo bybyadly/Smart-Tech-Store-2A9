@@ -35,6 +35,8 @@ private slots:
 
     void on_pb_rechercher_clicked();
 
+    void on_pb_pdf_clicked();
+
 private:
     Ui::MainWindow *ui;
     Produit Pro;
