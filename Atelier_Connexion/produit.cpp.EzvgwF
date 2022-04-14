@@ -12,19 +12,17 @@ Produit::Produit()
 {
     ID=0;
     PRIX=0;
-    QUANTITE=0;
     NOM=" ";
     IMAGE=" ";
     DESCRIPTION=" ";
 
 }
 
-Produit::Produit(int ID,QString NOM,QString IMAGE,int PRIX ,QString DESCRIPTION,int QUANTITE)
+Produit::Produit(int ID,QString NOM,QString IMAGE,int PRIX ,QString DESCRIPTION)
 {
 
 
     this->ID=ID;
-    this->QUANTITE=QUANTITE;
     this->NOM=NOM;
     this->IMAGE=IMAGE;
     this->PRIX=PRIX;
@@ -37,12 +35,6 @@ int Produit::getid()
 {
 
     return ID;
-}
-
-int Produit::getqtte()
-{
-
-    return QUANTITE;
 }
 QString Produit::getnom()
 {
@@ -98,17 +90,15 @@ bool Produit::ajouter()
    QSqlQuery query;
    QString id_string=QString::number(ID);
    QString prix_string=QString::number(PRIX);
-   QString qtte_string=QString::number(QUANTITE);
 
-        query.prepare("INSERT INTO PRODUITS (ID, IMAGE, NOM ,PRIX ,DESCRIPTION ,QUANTITE) "
-                      "VALUES (:ID, :IMAGE, :NOM, :PRIX, :DESCRIPTION, :QUANTITE)");
+        query.prepare("INSERT INTO PRODUITS (ID, IMAGE, NOM ,PRIX ,DESCRIPTION) "
+                      "VALUES (:ID, :IMAGE, :NOM, :PRIX, :DESCRIPTION)");
 
         query.bindValue(":ID", id_string);
         query.bindValue(":IMAGE", IMAGE);
         query.bindValue(":NOM", NOM);
         query.bindValue(":PRIX", prix_string);
         query.bindValue(":DESCRIPTION", DESCRIPTION);
-        query.bindValue(":QUANTITE", qtte_string);
      return   query.exec();
 }
 
@@ -123,7 +113,6 @@ QSqlQueryModel* Produit::afficher()
     model->setHeaderData(2,Qt::Horizontal,QObject::tr("Nom"));
     model->setHeaderData(3,Qt::Horizontal,QObject::tr("Prix"));
     model->setHeaderData(4,Qt::Horizontal,QObject::tr("Description"));
-    model->setHeaderData(5,Qt::Horizontal,QObject::tr("QUANTITE"));
     return model;
 }
 ////////////////////////////////////////////////////////////////////////////////////////////
@@ -134,26 +123,21 @@ bool Produit::modifier()
    QSqlQuery query;
    QString id_string=QString::number(ID);
    QString prix_string=QString::number(PRIX);
-   QString qtte_string=QString::number(QUANTITE);
 
-        query.prepare("UPDATE PRODUITS  set ID= :newID, IMAGE= :newIMAGE, NOM= :newNOM, PRIX= :newPRIX, DESCRIPTION= :newDESC ,QUANTITE=:newQTTE  WHERE  ID= :newID");
+        query.prepare("UPDATE PRODUITS  set ID= :newID, IMAGE= :newIMAGE, NOM= :newNOM, PRIX= :newPRIX, DESCRIPTION= :newDESC  WHERE  ID= :newID");
 
         query.bindValue(":newID", id_string);
         query.bindValue(":newIMAGE", IMAGE);
         query.bindValue(":newNOM", NOM);
         query.bindValue(":newPRIX", prix_string);
         query.bindValue(":newDESC", DESCRIPTION);
-        query.bindValue(":newQTTE", qtte_string);
      return   query.exec();
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////
 bool Produit::supprimer(int id)
 {
-
     QSqlQuery query;
-
-
     query.prepare("Delete from PRODUITS where id=:ID");
 
     query.bindValue(":ID", id);
@@ -175,7 +159,6 @@ QSqlQueryModel * Produit::Tridecroi()
     model->setHeaderData(2,Qt::Horizontal,QObject::tr("Nom"));
     model->setHeaderData(3,Qt::Horizontal,QObject::tr("Prix"));
     model->setHeaderData(4,Qt::Horizontal,QObject::tr("Description"));
-    model->setHeaderData(5,Qt::Horizontal,QObject::tr("QUANTITE"));
     return model;
 
 }
@@ -189,7 +172,6 @@ QSqlQueryModel * Produit::Tricroi()
     model->setHeaderData(2,Qt::Horizontal,QObject::tr("Nom"));
     model->setHeaderData(3,Qt::Horizontal,QObject::tr("Prix"));
     model->setHeaderData(4,Qt::Horizontal,QObject::tr("Description"));
-    model->setHeaderData(5,Qt::Horizontal,QObject::tr("QUANTITE"));
     return model;
 
 }
@@ -198,14 +180,12 @@ QSqlQueryModel * Produit::Tricroi()
 QSqlQueryModel * Produit::recherche(QString rech)
 {
     QSqlQueryModel *model=new QSqlQueryModel();
-    model->setQuery("select * from Produits where ID || NOM LIKE '%"+rech+"%'"  );
-
+    model->setQuery("select * from Produits where ID LIKE '%"+rech+"%'"  );
     model->setHeaderData(0,Qt::Horizontal,QObject::tr("Identifiant"));
     model->setHeaderData(1,Qt::Horizontal,QObject::tr("Image"));
     model->setHeaderData(2,Qt::Horizontal,QObject::tr("Nom"));
     model->setHeaderData(3,Qt::Horizontal,QObject::tr("Prix"));
     model->setHeaderData(4,Qt::Horizontal,QObject::tr("Description"));
-    model->setHeaderData(5,Qt::Horizontal,QObject::tr("QUANTITE"));
     return model;
 }
 ///////////////////////////////////////////////////
@@ -219,7 +199,6 @@ void Produit::printPDF()
     QMessageBox msgBox;
     QString id = QString::number(ID);
     QString prix = QString::number(PRIX);
-    QString quantite = QString::number(QUANTITE);
        font.setPointSize(font.pointSize() * 2);
        painter.setFont(font);
        painter.setPen(Qt::black);
@@ -228,11 +207,9 @@ void Produit::printPDF()
        painter.drawText(300, 1600, "Image: ");
        painter.drawText(300,4000,"Prix: ");
        painter.drawText(300,4800,"Description: ");
-       painter.drawText(300,5400,"Quantite: ");
        painter.setPen(Qt::blue);
        painter.drawText(2500, 800, id);
        painter.drawText(2500, 4000, prix);
-       painter.drawText(2500, 5400, quantite);
 
        painter.drawText(2500, 1600, this->NOM);
        painter.drawText(2500, 3200, this->IMAGE);
@@ -247,23 +224,3 @@ void Produit::printPDF()
 
 ////////////////////////////////////////////////////////////////////
 
-bool Produit::verif(int id)
-{
-
-    QSqlQuery query;
-    bool test=true;
-    int n=getqtte();
-
-
-    query.prepare("select QUANTITE from PRODUITS where id=:ID ");
-
-    if (n<10)
-    {test=false;}
-
-
-
-    query.bindValue(":ID", id);
-
- return   query.exec();
-
-}

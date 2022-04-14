@@ -43,10 +43,6 @@ private slots:
 
 
 
-    void on_Dark_clicked();
-
-    void on_Light_clicked();
-
 private:
     Ui::MainWindow *ui;
     Produit Pro;

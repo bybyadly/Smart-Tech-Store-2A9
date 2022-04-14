@@ -5,12 +5,8 @@
 #include <QIntValidator>
 #include <QtCharts>
 #include <QPieSlice>
-#include <QSqlQuery>
 #include <QPieSeries>
 #include <QRegExpValidator>
-
-
-
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -195,7 +191,7 @@ void MainWindow::on_pb_stats_clicked()
                       QChart *chart = new QChart();
                       // Add data to chart with title and hide legend
                       chart->addSeries(series);
-                      chart->setTitle("Pourcentage Par prix :Nombre de Produits disponibles "+ QString::number(total));
+                      chart->setTitle("Pourcentage Par num :Numero rendez-vous "+ QString::number(total));
                       chart->legend()->hide();
                       // Used to display the chart
                       QChartView *chartView = new QChartView(chart);
@@ -207,22 +203,11 @@ void MainWindow::on_pb_stats_clicked()
 void MainWindow::on_pb_verif_clicked()
 {
     Produit p1;
-QString idA = ui->verifid->text();
-int qnt;
-bool test;
-QSqlQuery qry;
-qry.prepare("select QUANTITE from PRODUITS where id = "+idA+" ");
-if (qry.exec()){
-    while (qry.next()){
-        qnt = (qry.value(0).toInt());
-        if (qnt >= 2){
-            test = true;
-        }else{
-            test = false;
-        }
-    }
-}
+
+    p1.setid(ui->verifid->text().toInt());
+    bool test=p1.verif(p1.getid());
     QMessageBox msgbox;
+
     if (test){
             ui->tab_produits->setModel(Pro.afficher());
             QMessageBox::information(nullptr, QObject::tr("Database is open"),
@@ -236,23 +221,3 @@ if (qry.exec()){
                                   );
         }
 }
-
-//////////////////////////////////////////////////////////////////////////////////////
-
-
-void MainWindow::on_Dark_clicked()
-{
-    QFile styleSheetFile("C:/Users/Hp/Desktop/gittt/Smart-Tech-Store-2A9/Atelier_Connexion/Diffnes.qss");
-    styleSheetFile.open(QFile::ReadOnly);
-    QString styleSheet = QLatin1String(styleSheetFile.readAll());
-    MainWindow::setStyleSheet(styleSheet);
-}
-
-void MainWindow::on_Light_clicked()
-{
-    QFile styleSheetFile("C:/Users/Hp/Desktop/gittt/Smart-Tech-Store-2A9/Atelier_Connexion/Integrid.qss");
-    styleSheetFile.open(QFile::ReadOnly);
-    QString styleSheet = QLatin1String(styleSheetFile.readAll());
-    MainWindow::setStyleSheet(styleSheet);
-}
-////////////////////////////////////////////////////////////////////////////////////////////

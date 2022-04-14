@@ -40,13 +40,7 @@ private slots:
     void on_pb_stats_clicked();
 
     void on_pb_verif_clicked();
-
-
-
-    void on_Dark_clicked();
-
-    void on_Light_clicked();
-
+    
 private:
     Ui::MainWindow *ui;
     Produit Pro;

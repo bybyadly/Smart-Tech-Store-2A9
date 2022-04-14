@@ -215,7 +215,7 @@ qry.prepare("select QUANTITE from PRODUITS where id = "+idA+" ");
 if (qry.exec()){
     while (qry.next()){
         qnt = (qry.value(0).toInt());
-        if (qnt >= 2){
+        if (qnt =<1){
             test = true;
         }else{
             test = false;

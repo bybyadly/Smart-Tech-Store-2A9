@@ -43,6 +43,10 @@ private slots:
 
 
 
+    void on_pushButton_clicked();
+
+    void on_pushButton_2_clicked();
+
     void on_Dark_clicked();
 
     void on_Light_clicked();

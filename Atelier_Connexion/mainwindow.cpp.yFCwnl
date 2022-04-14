@@ -195,7 +195,7 @@ void MainWindow::on_pb_stats_clicked()
                       QChart *chart = new QChart();
                       // Add data to chart with title and hide legend
                       chart->addSeries(series);
-                      chart->setTitle("Pourcentage Par prix :Nombre de Produits disponibles "+ QString::number(total));
+                      chart->setTitle("Pourcentage Par prix :Prix "+ QString::number(total));
                       chart->legend()->hide();
                       // Used to display the chart
                       QChartView *chartView = new QChartView(chart);
@@ -215,7 +215,7 @@ qry.prepare("select QUANTITE from PRODUITS where id = "+idA+" ");
 if (qry.exec()){
     while (qry.next()){
         qnt = (qry.value(0).toInt());
-        if (qnt >= 2){
+        if (qnt >= 10){
             test = true;
         }else{
             test = false;
@@ -240,19 +240,20 @@ if (qry.exec()){
 //////////////////////////////////////////////////////////////////////////////////////
 
 
-void MainWindow::on_Dark_clicked()
+
+
+void MainWindow::on_pushButton_clicked()
 {
-    QFile styleSheetFile("C:/Users/Hp/Desktop/gittt/Smart-Tech-Store-2A9/Atelier_Connexion/Diffnes.qss");
-    styleSheetFile.open(QFile::ReadOnly);
-    QString styleSheet = QLatin1String(styleSheetFile.readAll());
-    MainWindow::setStyleSheet(styleSheet);
+   QFile styleSheetFile(":/img/Adaptic.qss");
+   styleSheetFile.open(QFile::ReadOnly);
+   QString styleSheet = QLatin1String(styleSheetFile.readAll());
+   MainWindow::setStyleSheet(styleSheet);
 }
 
-void MainWindow::on_Light_clicked()
+void MainWindow::on_pushButton_2_clicked()
 {
-    QFile styleSheetFile("C:/Users/Hp/Desktop/gittt/Smart-Tech-Store-2A9/Atelier_Connexion/Integrid.qss");
+    QFile styleSheetFile(":/img/normal.qss");
     styleSheetFile.open(QFile::ReadOnly);
     QString styleSheet = QLatin1String(styleSheetFile.readAll());
     MainWindow::setStyleSheet(styleSheet);
 }
-////////////////////////////////////////////////////////////////////////////////////////////

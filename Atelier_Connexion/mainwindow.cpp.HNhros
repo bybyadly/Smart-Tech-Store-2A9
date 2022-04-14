@@ -8,7 +8,8 @@
 #include <QSqlQuery>
 #include <QPieSeries>
 #include <QRegExpValidator>
-
+#include <qrcode.h>
+#include "qrcode.h"
 
 
 MainWindow::MainWindow(QWidget *parent) :
@@ -195,7 +196,7 @@ void MainWindow::on_pb_stats_clicked()
                       QChart *chart = new QChart();
                       // Add data to chart with title and hide legend
                       chart->addSeries(series);
-                      chart->setTitle("Pourcentage Par prix :Nombre de Produits disponibles "+ QString::number(total));
+                      chart->setTitle("Pourcentage Par prix :Prix "+ QString::number(total));
                       chart->legend()->hide();
                       // Used to display the chart
                       QChartView *chartView = new QChartView(chart);
@@ -215,7 +216,7 @@ qry.prepare("select QUANTITE from PRODUITS where id = "+idA+" ");
 if (qry.exec()){
     while (qry.next()){
         qnt = (qry.value(0).toInt());
-        if (qnt >= 2){
+        if (qnt >= 10){
             test = true;
         }else{
             test = false;
@@ -240,19 +241,94 @@ if (qry.exec()){
 //////////////////////////////////////////////////////////////////////////////////////
 
 
-void MainWindow::on_Dark_clicked()
-{
-    QFile styleSheetFile("C:/Users/Hp/Desktop/gittt/Smart-Tech-Store-2A9/Atelier_Connexion/Diffnes.qss");
-    styleSheetFile.open(QFile::ReadOnly);
-    QString styleSheet = QLatin1String(styleSheetFile.readAll());
-    MainWindow::setStyleSheet(styleSheet);
-}
 
-void MainWindow::on_Light_clicked()
+void MainWindow::on_qrCode_clicked()
 {
-    QFile styleSheetFile("C:/Users/Hp/Desktop/gittt/Smart-Tech-Store-2A9/Atelier_Connexion/Integrid.qss");
-    styleSheetFile.open(QFile::ReadOnly);
-    QString styleSheet = QLatin1String(styleSheetFile.readAll());
-    MainWindow::setStyleSheet(styleSheet);
+    int tabeq=ui->tableView->currentIndex().row();
+
+                       QVariant idd=ui->tableView->model()->data(ui->tableView->model()->index(tabeq,0));
+
+                       QString id=idd.toString();
+
+                      // QString code=idd.toSTring();
+
+                       QSqlQuery qry;
+
+                       qry.prepare("select * from EMPLOYEES where id_employee=:id");
+
+                       qry.bindValue(":id",id);
+
+                       qry.exec();
+
+
+
+                       int num,cin,idtache;
+
+                        QString idA, nom,prenom,password,email;//attributs
+
+
+
+
+
+                      while(qry.next()){
+
+
+
+                          idA=qry.value(0).toString();
+
+                           nom=qry.value(1).toString();
+
+                            prenom=qry.value(2).toString();
+
+                           cin=qry.value(3).toInt();
+
+                           num=qry.value(13).toInt();
+
+                           idtache=qry.value(10).toInt();
+
+                           password=qry.value(5).toString();
+
+                           email=qry.value(4).toString();
+
+
+
+                       }
+
+                       id=QString(id);
+
+                              id="ID_EMPLOYEE:\t" +idA+ "NOM_EMPLOYEE\t:" +nom+ "PRENOM_EMPLOYEE:\t" +prenom+ "CIN_EMPLOYEE:\t" +cin+ "TEL_EMPLOYEE:\t" +num+ "ID_TACHE:\t" +idtache+ "EMAIL_EMPLOYEE:\t" +email+ "PASSWORD_EMPLOYEE:\t" +password ;
+
+                       QrCode qr = QrCode::encodeText(id.toUtf8().constData(), QrCode::Ecc::HIGH);
+
+
+
+                       // Read the black & white pixels
+
+                       QImage im(qr.getSize(),qr.getSize(), QImage::Format_RGB888);
+
+                       for (int y = 0; y < qr.getSize(); y++) {
+
+                           for (int x = 0; x < qr.getSize(); x++) {
+
+                               int color = qr.getModule(x, y);  // 0 for white, 1 for black
+
+
+
+                               // You need to modify this part
+
+                               if(color==0)
+
+                                   im.setPixel(x, y,qRgb(254, 254, 254));
+
+                               else
+
+                                   im.setPixel(x, y,qRgb(0, 0, 0));
+
+                           }
+
+                       }
+
+                       im=im.scaled(200,200);
+
+                      ui->qr_code->setPixmap(QPixmap::fromImage(im));
 }
-////////////////////////////////////////////////////////////////////////////////////////////

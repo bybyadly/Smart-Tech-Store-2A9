@@ -38,12 +38,6 @@ int Produit::getid()
 
     return ID;
 }
-
-int Produit::getqtte()
-{
-
-    return QUANTITE;
-}
 QString Produit::getnom()
 {
     return NOM;
@@ -136,7 +130,7 @@ bool Produit::modifier()
    QString prix_string=QString::number(PRIX);
    QString qtte_string=QString::number(QUANTITE);
 
-        query.prepare("UPDATE PRODUITS  set ID= :newID, IMAGE= :newIMAGE, NOM= :newNOM, PRIX= :newPRIX, DESCRIPTION= :newDESC ,QUANTITE=:newQTTE  WHERE  ID= :newID");
+        query.prepare("UPDATE PRODUITS  set ID= :newID, IMAGE= :newIMAGE, NOM= :newNOM, PRIX= :newPRIX, DESCRIPTION= :newDESC ,QUANTITE:=newQTTE  WHERE  ID= :newID");
 
         query.bindValue(":newID", id_string);
         query.bindValue(":newIMAGE", IMAGE);
@@ -150,10 +144,7 @@ bool Produit::modifier()
 //////////////////////////////////////////////////////////////////////////////////////////////////////
 bool Produit::supprimer(int id)
 {
-
     QSqlQuery query;
-
-
     query.prepare("Delete from PRODUITS where id=:ID");
 
     query.bindValue(":ID", id);
@@ -198,8 +189,7 @@ QSqlQueryModel * Produit::Tricroi()
 QSqlQueryModel * Produit::recherche(QString rech)
 {
     QSqlQueryModel *model=new QSqlQueryModel();
-    model->setQuery("select * from Produits where ID || NOM LIKE '%"+rech+"%'"  );
-
+    model->setQuery("select * from Produits where ID LIKE '%"+rech+"%'"  );
     model->setHeaderData(0,Qt::Horizontal,QObject::tr("Identifiant"));
     model->setHeaderData(1,Qt::Horizontal,QObject::tr("Image"));
     model->setHeaderData(2,Qt::Horizontal,QObject::tr("Nom"));
@@ -232,7 +222,7 @@ void Produit::printPDF()
        painter.setPen(Qt::blue);
        painter.drawText(2500, 800, id);
        painter.drawText(2500, 4000, prix);
-       painter.drawText(2500, 5400, quantite);
+       painter.drawText(2500, 4000, quantite);
 
        painter.drawText(2500, 1600, this->NOM);
        painter.drawText(2500, 3200, this->IMAGE);
@@ -247,23 +237,3 @@ void Produit::printPDF()
 
 ////////////////////////////////////////////////////////////////////
 
-bool Produit::verif(int id)
-{
-
-    QSqlQuery query;
-    bool test=true;
-    int n=getqtte();
-
-
-    query.prepare("select QUANTITE from PRODUITS where id=:ID ");
-
-    if (n<10)
-    {test=false;}
-
-
-
-    query.bindValue(":ID", id);
-
- return   query.exec();
-
-}
