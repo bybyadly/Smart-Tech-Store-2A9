@@ -40,6 +40,12 @@ private slots:
 
     void on_pushButton_imprimer_clicked();
 
+    void on_pushButton_sombre_clicked();
+
+    void on_pushButton_blanc_clicked();
+
+    void on_pushButton_trier_nom_clicked();
+
 private:
     Ui::MainWindow *ui;
     Clients CL;

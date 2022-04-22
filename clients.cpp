@@ -86,6 +86,20 @@ QSqlQueryModel * Clients::trier(){
     return model;
 }
 
+QSqlQueryModel* Clients::trierNom(){
+    QSqlQueryModel * model = new QSqlQueryModel();
+    model->setQuery("select * from Clients order by NOM_CLIENT");
+    model->setHeaderData(0,Qt::Horizontal, QObject::tr("Identifiant"));
+    model->setHeaderData(1,Qt::Horizontal, QObject::tr("Nom"));
+    model->setHeaderData(2,Qt::Horizontal, QObject::tr("Prénom"));
+    model->setHeaderData(3,Qt::Horizontal, QObject::tr("Email"));
+    model->setHeaderData(4,Qt::Horizontal, QObject::tr("Cin"));
+    model->setHeaderData(5,Qt::Horizontal, QObject::tr("Sexe"));
+    model->setHeaderData(6,Qt::Horizontal, QObject::tr("Numéro de téléphone"));
+    model->setHeaderData(7,Qt::Horizontal, QObject::tr("Type"));
+    return model;
+}
+
 QSqlQueryModel * Clients::rechercher(QString field){
     QSqlQueryModel * model = new QSqlQueryModel();
     model->setQuery("select * from Clients where (NOM_CLIENT) LIKE '%"+field+"%' ");

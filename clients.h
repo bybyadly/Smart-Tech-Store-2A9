@@ -17,7 +17,7 @@ public:
     bool modifier();
     void printPDF_comptes();
     QSqlQueryModel * trier();
-
+    QSqlQueryModel * trierNom();
     QSqlQueryModel * rechercher(QString);
 
 };

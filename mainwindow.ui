@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>686</width>
-    <height>431</height>
+    <width>1030</width>
+    <height>546</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -381,20 +381,21 @@
           </property>
          </widget>
         </item>
+        <item>
+         <widget class="QPushButton" name="pushButton_sombre">
+          <property name="text">
+           <string>sombre</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="pushButton_blanc">
+          <property name="text">
+           <string>blanc</string>
+          </property>
+         </widget>
+        </item>
        </layout>
-       <zorder>layoutWidget</zorder>
-       <zorder>layoutWidget</zorder>
-       <zorder>pushButton_trier</zorder>
-       <zorder>tableViewAffichuer</zorder>
-       <zorder>layoutWidget</zorder>
-       <zorder>pushButton_actualiser</zorder>
-       <zorder>pushButton_trier_nom</zorder>
-       <zorder>tableViewAffichuer</zorder>
-       <zorder>groupBox</zorder>
-       <zorder>groupBox_2</zorder>
-       <zorder>groupBox_3</zorder>
-       <zorder>layoutWidget</zorder>
-       <zorder>pushButton_stat</zorder>
       </widget>
       <widget class="QWidget" name="tab_3">
        <attribute name="title">
@@ -426,7 +427,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>686</width>
+     <width>1030</width>
      <height>22</height>
     </rect>
    </property>

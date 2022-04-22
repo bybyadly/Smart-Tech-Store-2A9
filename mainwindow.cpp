@@ -181,7 +181,7 @@ void MainWindow::on_pushButtonGenerePDF_clicked()
     QString val=ui->lineEdit_ID_PDF->text();
     QSqlQuery query;
        query.prepare("select * from Clients where (id_client) LIKE "+val+" ");
-       int id, Cin, Num_tel;
+       int id, cin , Num_tel;
        QString Nom, Prenom, Email, Sexe, Type;
        if (query.exec()){
            while (query.next()){
@@ -189,7 +189,7 @@ void MainWindow::on_pushButtonGenerePDF_clicked()
                Nom = query.value(1).toString();
                Prenom = query.value(2).toString();
                Email = query.value(3).toString();
-               Cin= query.value(4).toInt();
+               cin= query.value(4).toInt();
                Sexe = query.value(5).toString();
                Num_tel= query.value(6).toInt();
                Type = query.value(7).toString();
@@ -197,7 +197,7 @@ void MainWindow::on_pushButtonGenerePDF_clicked()
            }else{
            QMessageBox::critical(this, tr("Error::"), query.lastError().text());
        }
-    Clients C(id, Cin, Num_tel, Nom, Prenom, Email, Sexe, Type);
+    Clients C(id, cin, Num_tel, Nom, Prenom, Email, Sexe, Type);
     C.printPDF_comptes();
 
 }
@@ -212,16 +212,16 @@ void MainWindow::on_pushButton_stat_clicked()
 {
     //ui->stackedWidget_2->setCurrentIndex(1);
                 QSqlQueryModel * model= new QSqlQueryModel();
-                model->setQuery("select * from Clients where id_client < 199 "); // id eli yabdaa bl 100 ela 199
+                model->setQuery("select * from Clients where id_client < 10 ");
                 float taille=model->rowCount();
-                model->setQuery("select * from Clients where id_client  between 199 and 299 "); // id mabin 200 ou 299
+                model->setQuery("select * from Clients where id_client  between 10 and 100 ");
                 float taillee=model->rowCount();
-                model->setQuery("select * from Clients where id_client >29999 ");
+                model->setQuery("select * from Clients where id_client >200 ");
                 float tailleee=model->rowCount();
                 float total=taille+taillee+tailleee;
                 QString a=QString("client fidele . "+QString::number((taille*100)/total,'f',2)+"%" );
                 QString b=QString("Client passage .  "+QString::number((taillee*100)/total,'f',2)+"%" );
-                QString c=QString("Clients retsekour ."+QString::number((tailleee*100)/total,'f',2)+"%" );
+                QString c=QString("super Clients."+QString::number((tailleee*100)/total,'f',2)+"%" );
                 QPieSeries * series = new QPieSeries();
                 series->append(a,taille);
                 series->append(b,taillee);
@@ -313,4 +313,25 @@ void MainWindow::on_pushButton_imprimer_clicked()
                          }
 
                          delete document;
+}
+
+void MainWindow::on_pushButton_sombre_clicked()
+{
+    QFile styleSheetFile("C:/Users/Aziz Abrougui/Desktop/copie stat imprimer/Combinear.qss");
+            styleSheetFile.open(QFile::ReadOnly);
+            QString styleSheet = QLatin1String (styleSheetFile.readAll());
+            MainWindow::setStyleSheet(styleSheet);
+}
+
+void MainWindow::on_pushButton_blanc_clicked()
+{
+            QFile styleSheetFile("C:/Users/Aziz Abrougui/Desktop/copie stat imprimer/Integrid.qss");
+            styleSheetFile.open(QFile::ReadOnly);
+            QString styleSheet = QLatin1String (styleSheetFile.readAll());
+            MainWindow::setStyleSheet(styleSheet);
+}
+
+void MainWindow::on_pushButton_trier_nom_clicked()
+{
+    ui->tableViewAffichuer->setModel(CL.trierNom());
 }
