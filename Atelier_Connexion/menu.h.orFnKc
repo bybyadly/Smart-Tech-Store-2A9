@@ -2,7 +2,8 @@
 #define MENU_H
 
 #include <QMainWindow>
-
+#include "mainwindow.h"
+#include "produit.h"
 
 namespace Ui {
 class Menu;
@@ -17,15 +18,11 @@ public:
     ~Menu();
 
 private slots:
-
-
-    void on_gestion_produits_clicked();
-
-    void on_quitter_clicked();
+    void on_pushButton_clicked();
 
 private:
     Ui::Menu *ui;
-
+    MainWindow *p;
 };
 
 #endif // MENU_H

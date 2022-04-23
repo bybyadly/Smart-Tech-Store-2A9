@@ -17,11 +17,7 @@ public:
     ~Menu();
 
 private slots:
-
-
-    void on_gestion_produits_clicked();
-
-    void on_quitter_clicked();
+    void on_pushButton_clicked();
 
 private:
     Ui::Menu *ui;

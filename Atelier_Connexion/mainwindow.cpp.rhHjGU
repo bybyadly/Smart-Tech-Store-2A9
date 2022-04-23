@@ -8,7 +8,6 @@
 #include <QSqlQuery>
 #include <QPieSeries>
 #include <QRegExpValidator>
-#include"menu.h"
 
 
 
@@ -310,10 +309,3 @@ void MainWindow::update_label()
 }
 
 
-
-void MainWindow::on_pushButton_clicked()
-{
-    hide();
-   m=new Menu(this);
-   m->show();
-}

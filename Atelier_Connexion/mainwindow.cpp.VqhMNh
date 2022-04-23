@@ -8,7 +8,6 @@
 #include <QSqlQuery>
 #include <QPieSeries>
 #include <QRegExpValidator>
-#include"menu.h"
 
 
 
@@ -16,7 +15,7 @@ MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
-    QFile styleSheetFile("C:/Users/Hp/Desktop/gittt/Smart-Tech-Store-2A9/Atelier_Connexion/Perstfic.qss");
+    QFile styleSheetFile("C:/Users/Hp/Desktop/gittt/Smart-Tech-Store-2A9/Atelier_Connexion/Devsion.qss");
     styleSheetFile.open(QFile::ReadOnly);
     QString styleSheet = QLatin1String(styleSheetFile.readAll());
     MainWindow::setStyleSheet(styleSheet);
@@ -310,10 +309,3 @@ void MainWindow::update_label()
 }
 
 
-
-void MainWindow::on_pushButton_clicked()
-{
-    hide();
-   m=new Menu(this);
-   m->show();
-}

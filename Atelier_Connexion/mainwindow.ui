@@ -580,45 +580,71 @@
        <string>Light</string>
       </property>
      </widget>
-    </widget>
-    <widget class="QWidget" name="tab_2">
-     <attribute name="title">
-      <string>QRCODE</string>
-     </attribute>
-     <widget class="QTableView" name="tab_stock">
+     <widget class="QPushButton" name="pushButton">
       <property name="geometry">
        <rect>
-        <x>100</x>
-        <y>80</y>
-        <width>551</width>
-        <height>391</height>
-       </rect>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="qrCode">
-      <property name="geometry">
-       <rect>
-        <x>780</x>
-        <y>230</y>
+        <x>1020</x>
+        <y>600</y>
         <width>93</width>
         <height>28</height>
        </rect>
       </property>
       <property name="text">
-       <string>PushButton</string>
+       <string>Menu</string>
       </property>
      </widget>
-     <widget class="QLabel" name="qr_code">
+    </widget>
+    <widget class="QWidget" name="tab_2">
+     <attribute name="title">
+      <string>Parking</string>
+     </attribute>
+     <widget class="QLabel" name="etat_porte">
       <property name="geometry">
        <rect>
-        <x>790</x>
-        <y>310</y>
-        <width>301</width>
-        <height>241</height>
+        <x>530</x>
+        <y>270</y>
+        <width>231</width>
+        <height>61</height>
        </rect>
       </property>
       <property name="text">
        <string/>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="closed">
+      <property name="geometry">
+       <rect>
+        <x>630</x>
+        <y>10</y>
+        <width>451</width>
+        <height>251</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Sortie d'une voiture</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="open">
+      <property name="geometry">
+       <rect>
+        <x>160</x>
+        <y>10</y>
+        <width>451</width>
+        <height>251</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Entrée d'une voiture</string>
+      </property>
+     </widget>
+     <widget class="QTextEdit" name="nb_slots">
+      <property name="geometry">
+       <rect>
+        <x>880</x>
+        <y>390</y>
+        <width>211</width>
+        <height>87</height>
+       </rect>
       </property>
      </widget>
     </widget>

@@ -14,82 +14,69 @@
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QPushButton" name="gestion_employee">
+   <widget class="QPushButton" name="pushButton">
     <property name="geometry">
      <rect>
-      <x>360</x>
+      <x>570</x>
       <y>90</y>
-      <width>591</width>
-      <height>28</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Gestion Employés</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="gestion_fournisseurs">
-    <property name="geometry">
-     <rect>
-      <x>360</x>
-      <y>150</y>
-      <width>591</width>
-      <height>28</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Gestion Fournisserus</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="gestion_produits">
-    <property name="geometry">
-     <rect>
-      <x>360</x>
-      <y>220</y>
-      <width>591</width>
-      <height>28</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Gestion Produits</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="gestion_clients">
-    <property name="geometry">
-     <rect>
-      <x>360</x>
-      <y>290</y>
-      <width>591</width>
-      <height>28</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Gestion Clients</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="gestion_factures">
-    <property name="geometry">
-     <rect>
-      <x>360</x>
-      <y>360</y>
-      <width>591</width>
-      <height>28</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Gestion Factures</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="quitter">
-    <property name="geometry">
-     <rect>
-      <x>1180</x>
-      <y>500</y>
       <width>93</width>
       <height>28</height>
      </rect>
     </property>
     <property name="text">
-     <string>Quitter</string>
+     <string>PushButton</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_2">
+    <property name="geometry">
+     <rect>
+      <x>570</x>
+      <y>150</y>
+      <width>93</width>
+      <height>28</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>PushButton</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_3">
+    <property name="geometry">
+     <rect>
+      <x>570</x>
+      <y>220</y>
+      <width>93</width>
+      <height>28</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>PushButton</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_4">
+    <property name="geometry">
+     <rect>
+      <x>560</x>
+      <y>290</y>
+      <width>93</width>
+      <height>28</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>PushButton</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_5">
+    <property name="geometry">
+     <rect>
+      <x>560</x>
+      <y>360</y>
+      <width>93</width>
+      <height>28</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>PushButton</string>
     </property>
    </widget>
   </widget>
