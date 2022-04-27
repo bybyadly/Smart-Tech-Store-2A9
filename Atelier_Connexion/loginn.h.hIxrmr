@@ -1,0 +1,28 @@
+#ifndef LOGINN_H
+#define LOGINN_H
+
+#include <QMainWindow>
+
+
+
+namespace Ui {
+class loginn;
+}
+
+class loginn : public QMainWindow
+{
+    Q_OBJECT
+
+public:
+    explicit loginn(QWidget *parent = nullptr);
+    ~loginn();
+    Ui::loginn *ui;
+void on_pb_login_clicked();
+private slots:
+
+
+private:
+
+};
+
+#endif // LOGINN_H

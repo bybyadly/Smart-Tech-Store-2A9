@@ -1,0 +1,67 @@
+#include "menu.h"
+#include "ui_menu.h"
+#include "produit.h"
+#include <QMessageBox>
+#include <QIntValidator>
+#include <QtCharts>
+#include <QPieSlice>
+#include <QSqlQuery>
+#include <QPieSeries>
+#include <QRegExpValidator>
+#include "mainwindow.h"
+#include "azizwindow.h"
+#include "loginn.h"
+#include "ui_loginn.h"
+
+MainWindow *p;
+azizwindow *c;
+loginn *l,*l1;
+Menu::Menu(QWidget *parent) :
+    QMainWindow(parent),
+    ui(new Ui::Menu)
+{
+    ui->setupUi(this);
+    QFile styleSheetFile("C:/Users/Hp/Desktop/gittt/Smart-Tech-Store-2A9/Atelier_Connexion/Perstfic.qss");
+    styleSheetFile.open(QFile::ReadOnly);
+    QString styleSheet = QLatin1String(styleSheetFile.readAll());
+    Menu::setStyleSheet(styleSheet);
+}
+
+Menu::~Menu()
+{
+    delete ui;
+}
+
+
+
+void Menu::on_gestion_produits_clicked()
+{
+    QString username = l1->ui->username->text();
+    QString password = l1->ui->password->text();
+    l=new loginn(this);
+l->show();
+    if(username ==  "adly" && password == "adly") {
+           QMessageBox::information(this, "Login", "Username and password are correct");
+           //hide();
+           p=new MainWindow(this);
+           p->show();
+       }
+       else {
+           QMessageBox::warning(this,"Login", "Username and password are not correct");
+       }
+   }
+
+
+
+
+void Menu::on_quitter_clicked()
+{
+    exit(EXIT_FAILURE);
+}
+
+void Menu::on_gestion_clients_clicked()
+{
+
+   c=new azizwindow(this);
+   c->show();
+}

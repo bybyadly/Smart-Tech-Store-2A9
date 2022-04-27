@@ -1,0 +1,22 @@
+#ifndef SKANDERWINDOW_H
+#define SKANDERWINDOW_H
+
+#include <QMainWindow>
+
+namespace Ui {
+class skanderwindow;
+}
+
+class skanderwindow : public QMainWindow
+{
+    Q_OBJECT
+
+public:
+    explicit skanderwindow(QWidget *parent = nullptr);
+    ~skanderwindow();
+
+private:
+    Ui::skanderwindow *ui;
+};
+
+#endif // SKANDERWINDOW_H

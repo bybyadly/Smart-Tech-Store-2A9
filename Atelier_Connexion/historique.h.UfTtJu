@@ -1,0 +1,11 @@
+#ifndef HISTORIQUE_H
+#define HISTORIQUE_H
+
+
+class Historique
+{
+public:
+    Historique();
+};
+
+#endif // HISTORIQUE_H

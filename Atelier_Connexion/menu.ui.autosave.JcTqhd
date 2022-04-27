@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Menu</class>
+ <widget class="QMainWindow" name="Menu">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1289</width>
+    <height>594</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <property name="img" stdset="0">
+   <iconset>
+    <normaloff>../../../affiche.png</normaloff>../../../affiche.png</iconset>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QPushButton" name="gestion_employee">
+    <property name="geometry">
+     <rect>
+      <x>360</x>
+      <y>90</y>
+      <width>591</width>
+      <height>28</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Gestion Employés</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="gestion_fournisseurs">
+    <property name="geometry">
+     <rect>
+      <x>360</x>
+      <y>150</y>
+      <width>591</width>
+      <height>28</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Gestion Fournisserus</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="gestion_produits">
+    <property name="geometry">
+     <rect>
+      <x>360</x>
+      <y>220</y>
+      <width>591</width>
+      <height>28</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Gestion Produits</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="gestion_clients">
+    <property name="geometry">
+     <rect>
+      <x>360</x>
+      <y>290</y>
+      <width>591</width>
+      <height>28</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Gestion Clients</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="gestion_factures">
+    <property name="geometry">
+     <rect>
+      <x>360</x>
+      <y>360</y>
+      <width>591</width>
+      <height>28</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Gestion Factures</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="quitter">
+    <property name="geometry">
+     <rect>
+      <x>1180</x>
+      <y>500</y>
+      <width>93</width>
+      <height>28</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Quitter</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="image">
+    <property name="geometry">
+     <rect>
+      <x>390</x>
+      <y>430</y>
+      <width>581</width>
+      <height>101</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1289</width>
+     <height>26</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

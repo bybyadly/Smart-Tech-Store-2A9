@@ -1,0 +1,22 @@
+#ifndef WINDOWAZIZ_H
+#define WINDOWAZIZ_H
+
+#include <QDialog>
+
+namespace Ui {
+class windowaziz;
+}
+
+class windowaziz : public QDialog
+{
+    Q_OBJECT
+
+public:
+    explicit windowaziz(QWidget *parent = nullptr);
+    ~windowaziz();
+
+private:
+    Ui::windowaziz *ui;
+};
+
+#endif // WINDOWAZIZ_H

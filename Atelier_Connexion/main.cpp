@@ -2,16 +2,30 @@
 #include <QApplication>
 #include <QMessageBox>
 #include "connection.h"
+#include <QTranslator>
+#include <QInputDialog>
+#include "menu.h"
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    MainWindow w;
+    Menu m;
     Connection c;
     bool test=c.createconnect();
     if(test)
 
-    {
-        w.show();
+    { QTranslator t;
+        QTranslator guiTranslator;
+       QStringList languages;
+       languages <<"Frensh"<<"English";
+       QString lang = QInputDialog::getItem(NULL,"select Language",
+                                            "Language",languages);
+       if(lang=="Englais")
+       {
+           t.load("C:/Users/Hp/Desktop/gittt/Smart-Tech-Store-2A9/Atelier_Connexion/Englais.qm");
+           a.installTranslator(&t);
+       }
+
+        m.show();
         QMessageBox::critical(nullptr, QObject::tr("database is open"),
                     QObject::tr("connection successful.\n"
                                 "Click Cancel to exit."), QMessageBox::Cancel);

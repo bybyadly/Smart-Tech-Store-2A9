@@ -1,0 +1,22 @@
+#ifndef LOGINELAA_H
+#define LOGINELAA_H
+
+#include <QMainWindow>
+
+namespace Ui {
+class loginelaa;
+}
+
+class loginelaa : public QMainWindow
+{
+    Q_OBJECT
+
+public:
+    explicit loginelaa(QWidget *parent = nullptr);
+    ~loginelaa();
+
+private:
+    Ui::loginelaa *ui;
+};
+
+#endif // LOGINELAA_H

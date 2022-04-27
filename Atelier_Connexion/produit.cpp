@@ -267,3 +267,17 @@ bool Produit::verif(int id)
  return   query.exec();
 
 }
+/////////////////////////////////////////////////////////////////////
+bool Produit::supprimerprods()
+{
+
+    QSqlQuery query;
+
+
+    query.prepare("Delete from PRODUITS" );
+
+
+
+ return   query.exec();
+
+}

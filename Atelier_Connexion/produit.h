@@ -29,6 +29,7 @@ QSqlQueryModel * recherche(QString);
     QSqlQueryModel * Tridecroi();
     QSqlQueryModel * Tricroi();
     void printPDF();
+    bool supprimerprods();
 
 private:
     int ID,PRIX,QUANTITE;

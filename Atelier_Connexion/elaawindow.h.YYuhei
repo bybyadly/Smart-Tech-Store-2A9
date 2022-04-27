@@ -1,0 +1,22 @@
+#ifndef ELAAWINDOW_H
+#define ELAAWINDOW_H
+
+#include <QMainWindow>
+
+namespace Ui {
+class elaawindow;
+}
+
+class elaawindow : public QMainWindow
+{
+    Q_OBJECT
+
+public:
+    explicit elaawindow(QWidget *parent = nullptr);
+    ~elaawindow();
+
+private:
+    Ui::elaawindow *ui;
+};
+
+#endif // ELAAWINDOW_H

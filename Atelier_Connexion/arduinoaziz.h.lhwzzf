@@ -1,0 +1,11 @@
+#ifndef ARDUINOAZIZ_H
+#define ARDUINOAZIZ_H
+
+
+class Arduinoaziz
+{
+public:
+    Arduinoaziz();
+};
+
+#endif // ARDUINOAZIZ_H

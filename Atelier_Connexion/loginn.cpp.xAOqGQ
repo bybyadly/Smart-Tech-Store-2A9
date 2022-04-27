@@ -1,0 +1,21 @@
+#include "loginn.h"
+#include "ui_loginn.h"
+
+loginn::loginn(QWidget *parent) :
+    QMainWindow(parent),
+    ui(new Ui::loginn)
+{
+    ui->setupUi(this);
+}
+
+loginn::~loginn()
+{
+    delete ui;
+}
+
+void loginn::on_pb_login_clicked()
+{
+
+
+
+}
