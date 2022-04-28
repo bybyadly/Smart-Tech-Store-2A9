@@ -23,12 +23,11 @@
 #include "loginskander.h"
 #include <QTimer>
 #include <QDateTime>
-#include "loginmaha.h"
 
 loginaziz *c;
 loginn *l,*l1;
 loginelaa *el;
-loginmaha *mh;
+mahawindow *mh;
 loginskander *sk;
 
 
@@ -37,10 +36,10 @@ Menu::Menu(QWidget *parent) :
     ui(new Ui::Menu)
 {
     ui->setupUi(this);
-    QPixmap pix("C:/Users/Hp/Desktop/techland.png") ;
-    //QPixmap pix1("C:/Users/Hp/Desktop/employés.png");
+    QPixmap pix("C:/Users/Hp/Desktop/techland.png");
     ui->image->setPixmap(pix);
-    //ui->icon_emp->setPixmap(pix1);
+    QPixmap pix1("C:/Users/Hp/Desktop/testinteg/Smart-Tech-Store-2A9/Atelier_Connexion/employés.png");
+    ui->image->setPixmap(pix1);
 
     QFile styleSheetFile("C:/Users/Hp/Desktop/gittt/Smart-Tech-Store-2A9/Atelier_Connexion/Perstfic.qss");
     styleSheetFile.open(QFile::ReadOnly);
@@ -98,7 +97,7 @@ void Menu::on_gestion_employee_clicked()
 {
 
 
-        mh=new loginmaha(this);
+        mh=new mahawindow(this);
         mh->show();
 
 }

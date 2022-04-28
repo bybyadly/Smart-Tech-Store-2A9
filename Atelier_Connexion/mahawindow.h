@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include "employee.h"
 #include "historique.h"
+#include "arduinomaha.h"
 
 namespace Ui {
 class mahawindow;
@@ -57,10 +58,19 @@ private slots:
 
     void on_pushButton_3_clicked();
 
+
+
+    void on_open_clicked();
+
+    void on_close_clicked();
+    void update_label();
+
 private:
     Ui::mahawindow *ui;
     employee E;
     Historique HI;
+    arduinomaha M1;
+    QByteArray data;
 };
 
 #endif // MAHAWINDOW_H

@@ -37,6 +37,7 @@
 #include <QPrintDialog>
 #include <QTextDocument>
 #include <QTextStream>
+#include "arduinomaha.h"
 
 
 mahawindow::mahawindow(QWidget *parent) :
@@ -53,7 +54,16 @@ mahawindow::mahawindow(QWidget *parent) :
     ui->tab_etud->setModel(E.afficher());
     ui->tableViewHistorique->setModel(HI.Afficher());
 
-
+    int ret=M1.connect_arduino(); // lancer la connexion à arduino
+    switch(ret){
+    case(0):qDebug()<< "arduino is available and connected to : "<< M1.getarduino_port_name();
+        break;
+    case(1):qDebug() << "arduino is available but not connected to :" <<M1.getarduino_port_name();
+       break;
+    case(-1):qDebug() << "arduino is not available";
+    }
+     QObject::connect(M1.getserial(),SIGNAL(readyRead()),this,SLOT(update_label())); // permet de lancer
+     //le slot update_label suite à la reception du signal readyRead (reception des données).
 }
 
 mahawindow::~mahawindow()
@@ -348,4 +358,31 @@ void mahawindow::on_pushButton_3_clicked()
 {
     ui->tab_etud->setModel(E.afficher());
     ui->tableViewHistorique->setModel(HI.Afficher());
+}
+
+
+
+void mahawindow::on_open_clicked()
+{
+   M1.write_to_arduino("2");
+}
+
+void mahawindow::on_close_clicked()
+{
+    M1.write_to_arduino("1");
+}
+
+void mahawindow::update_label()
+{
+    data=M1.read_from_arduino();
+
+
+    if(data=="2")
+
+        ui->label_fournisseur->setText("Operation succeed WELCOME"); // si les données reçues de arduino via la liaison série sont égales à 1
+    // alors afficher ON
+
+    else if (data=="1")
+
+        ui->label_fournisseur->setText("See you soon");
 }

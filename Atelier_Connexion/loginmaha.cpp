@@ -1,5 +1,6 @@
-#include "loginn.h"
-#include "ui_loginn.h"
+#include "loginmaha.h"
+#include "ui_loginmaha.h"
+#include "mahawindow.h"
 #include <QMessageBox>
 #include <QIntValidator>
 #include <QtCharts>
@@ -7,47 +8,38 @@
 #include <QSqlQuery>
 #include <QPieSeries>
 #include <QRegExpValidator>
-#include "mainwindow.h"
-#include "azizwindow.h"
-#include "loginn.h"
-#include "ui_loginn.h"
 
-
-MainWindow *p;
-loginn::loginn(QWidget *parent) :
+mahawindow *m;
+loginmaha::loginmaha(QWidget *parent) :
     QMainWindow(parent),
-    ui(new Ui::loginn)
+    ui(new Ui::loginmaha)
 {
     ui->setupUi(this);
 }
 
-loginn::~loginn()
+loginmaha::~loginmaha()
 {
     delete ui;
 }
 
-void loginn::on_pb_login_clicked()
+void loginmaha::on_pb_login_clicked()
 {
-
-
     QString username = ui->username->text();
     QString password = ui->password->text();
 
-    if(username ==  "adly" && password == "adly" ) {
-        QMessageBox::information(this, "Login", "Username and password is correct");
+    if(username ==  "maha" && password == "maha") {
+        QMessageBox::information(this, "Login", "Bienvenue Maha : Voici votre accés");
         //hide();
-        p = new MainWindow(this);
-        p->show();
+        m = new mahawindow(this);
+        m->show();
     }
     else  if(username ==  "admin" && password == "admin" ) {
         QMessageBox::information(this, "Login", "Bienvenue ADMINISTRATEUR : Voici votre accés");
         //hide();
-        p = new MainWindow(this);
-        p->show();
+        m = new mahawindow(this);
+        m->show();
     }
     else {
         QMessageBox::warning(this,"Login", "Username or password is not correct, Veuillez réessayer");
     }
-
-
 }

@@ -80,7 +80,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>Gestion Finances</string>
+     <string>Gestion Factures</string>
     </property>
    </widget>
    <widget class="QPushButton" name="quitter">
@@ -131,11 +131,8 @@
       <height>71</height>
      </rect>
     </property>
-    <property name="styleSheet">
-     <string notr="true">font: 24pt &quot;MS Shell Dlg 2&quot;;</string>
-    </property>
     <property name="text">
-     <string>Clock</string>
+     <string/>
     </property>
    </widget>
   </widget>

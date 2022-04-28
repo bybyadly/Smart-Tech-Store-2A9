@@ -337,7 +337,7 @@ void azizwindow::on_pushButton_imprimer_clicked()
 
 void azizwindow::on_pushButton_sombre_clicked()
 {
-    QFile styleSheetFile("C:/Users/Aziz Abrougui/Desktop/copie stat imprimer/Combinear.qss");
+    QFile styleSheetFile("C:/Users/Hp/Desktop/testinteg/Smart-Tech-Store-2A9/Atelier_Connexion/Combinear.qss");
             styleSheetFile.open(QFile::ReadOnly);
             QString styleSheet = QLatin1String (styleSheetFile.readAll());
             azizwindow::setStyleSheet(styleSheet);
@@ -345,7 +345,7 @@ void azizwindow::on_pushButton_sombre_clicked()
 
 void azizwindow::on_pushButton_blanc_clicked()
 {
-            QFile styleSheetFile("C:/Users/Aziz Abrougui/Desktop/copie stat imprimer/Integrid.qss");
+            QFile styleSheetFile("C:/Users/Hp/Desktop/testinteg/Smart-Tech-Store-2A9/Atelier_Connexion/Integrid.qss");
             styleSheetFile.open(QFile::ReadOnly);
             QString styleSheet = QLatin1String (styleSheetFile.readAll());
            azizwindow::setStyleSheet(styleSheet);

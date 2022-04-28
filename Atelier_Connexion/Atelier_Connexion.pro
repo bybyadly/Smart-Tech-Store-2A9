@@ -37,6 +37,7 @@ CONFIG += c++11
 SOURCES += \
     arduino.cpp \
     arduinoaziz.cpp \
+    arduinomaha.cpp \
     azizwindow.cpp \
     clients.cpp \
     elaawindow.cpp \
@@ -48,7 +49,9 @@ SOURCES += \
     historiqueclients.cpp \
     loginaziz.cpp \
     loginelaa.cpp \
+    loginmaha.cpp \
     loginn.cpp \
+    loginskander.cpp \
     mahawindow.cpp \
         main.cpp \
         mainwindow.cpp \
@@ -60,6 +63,7 @@ SOURCES += \
 HEADERS += \
     arduino.h \
     arduinoaziz.h \
+    arduinomaha.h \
     azizwindow.h \
     calculatrice.h \
     clients.h \
@@ -72,7 +76,9 @@ HEADERS += \
     historiqueclients.h \
     loginaziz.h \
     loginelaa.h \
+    loginmaha.h \
     loginn.h \
+    loginskander.h \
     mahawindow.h \
         mainwindow.h \
     connection.h \
@@ -87,7 +93,9 @@ FORMS += \
         elaawindow.ui \
         loginaziz.ui \
         loginelaa.ui \
+        loginmaha.ui \
         loginn.ui \
+        loginskander.ui \
         mahawindow.ui \
         mainwindow.ui \
         menu.ui \
